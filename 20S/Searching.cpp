@@ -61,10 +61,8 @@ bool in (char * s, std::vector<char *> v)
     return false;
 }
 
-int * Occurences(char * s, int size)
+int * Occurences(char * s, int size, int * array)
 {
-    static int * array;
-
     for (int i = 0; i < ALPHA; i++)
     {
         array[i] = 0;
@@ -102,12 +100,12 @@ int main()
         }
     }
     
-    int * signature;
-    signature = Occurences(needle, needleLength);
+    int signature[ALPHA];
+    Occurences(needle, needleLength, signature);
     
     for (int i = 0; i < ALPHA; i ++)
     {
-        printf("%c\n", signature[i]);
+        printf("%d\n", signature[i]);
     }
     printf("\n");
 
@@ -121,7 +119,10 @@ int main()
         strncpy(rbound, haystack, i + needleLength);
         strcat(view, rbound + i);
 
-        if (arrayEqual(Occurences(view, needleLength), signature, needleLength))
+        int view_signature[ALPHA];
+        Occurences(view, needleLength, view_signature);
+
+        if (arrayEqual(view_signature, signature, needleLength) )
         {
             if (in(view, previous) )
             {
