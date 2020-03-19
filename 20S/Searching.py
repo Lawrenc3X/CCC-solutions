@@ -17,12 +17,12 @@ signature = Occurences(needle)
 
 perm = 0
 previous = []
-for i in range(len(haystack) - needle_length + 1):
-    view = haystack[i: i + needle_length]
-
-    if Occurences(view) == signature:
-        if view not in previous:
-            perm += 1
-            previous.append(view)
+# for i in range(len(haystack) - needle_length + 1): # implement rolling table
+#     view = haystack[i: i + needle_length]
+# 
+#     if Occurences(view) == signature:
+#         if view not in previous:
+#             perm += 1
+#                previous.append(view)
 
 print(perm)
