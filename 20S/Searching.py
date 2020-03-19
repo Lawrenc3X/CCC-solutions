@@ -26,4 +26,3 @@ for i in range(len(haystack) - needle_length + 1):
             previous.append(view)
 
 print(perm)
-
