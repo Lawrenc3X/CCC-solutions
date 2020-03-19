@@ -24,5 +24,6 @@ previous = []
 #         if view not in previous:
 #             perm += 1
 #                previous.append(view)
+rolling_view = Occurences(haystack[0: needle_length])
 
 print(perm)
