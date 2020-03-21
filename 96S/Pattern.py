@@ -22,4 +22,3 @@ for i in range(cases):
     print("The bit patterns are")
     for i in combos(total, ones):
         print(i)
-
