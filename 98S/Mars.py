@@ -34,14 +34,14 @@ for i in range(excursions):
 
     distance = abs(position["xdev"]) + abs(position["ydev"])
     print(f"Distance is {distance}")
-    print(f"""xdev {position["xdev"]} ydev {position["ydev"]}""")
+#     print(f"""xdev {position["xdev"]} ydev {position["ydev"]}""")
 
     if distance == 0:
         print("")
         continue
 
     if position["xdev"] == 0:
-        print(f"ran vertical direction {direction}")
+#            print(f"ran vertical direction {direction}")
         if position["ydev"] > 0:
             right_turns = (6 - direction ) % 4
             if right_turns < 3:
@@ -51,7 +51,7 @@ for i in range(excursions):
             print("1")
             print(f"""{position["ydev"]}""")
         else:
-            print("negative ydev")
+#                print("negative ydev")
             right_turns = 4 - direction
             if right_turns < 3:
                 print("2\n" * right_turns, end = "")
@@ -62,19 +62,20 @@ for i in range(excursions):
             print(f"""{abs(position["ydev"])}""")
 
     if position["ydev"] == 0:
-        print(f"ran horizontal direction {direction}")
+#            print(f"ran horizontal direction {direction}")
         if position["xdev"] > 0:
             right_turns = (7 - direction) % 4
+
             if right_turns < 3:
-                print("2\n" * right_turns, end = "")
+                print("2\n" * right_turns)
             else:
                 print("3")
             print("1")
             print(f"""{position["xdev"]}""")
         else:
-            print("negative xdev")
+#                print("negative xdev")
             right_turns = (5 - direction) % 4
-            print(f"right turns {right_turns}")
+#                print(f"right turns {right_turns}")
             if right_turns < 3:
                 print("2\n" * right_turns, end = "")
             else:
@@ -85,26 +86,115 @@ for i in range(excursions):
 
     if position["xdev"] > 0 and position["ydev"] > 0: # X+ Y+
         if direction == 0 or direction == 3: # prefer x
-            pass
+            right_turns = (7 - direction) % 4
+
+            if right_turns < 3:
+                print("2\n" * right_turns, end = "")
+            else:
+                print("3")
+            print("1")
+            print(f"""{position["xdev"]}""")
+
+            print("3")
+            print("1")
+            print(f"""{position["ydev"]}""")
         else: # prefer y
-            pass
+            right_turns = (6 - direction) % 4
+
+            if right_turns < 3:
+                print("2\n" * right_turns, end = "")
+            else:
+                print("3")
+            print("1")
+            print(f"""{position["ydev"]}""")
+
+            print("2")
+            print("1")
+            print(f"""{position["xdev"]}""")
 
     if position["xdev"] > 0 and position["ydev"] < 0: # X+ Y-
         if direction == 2 or direction == 3: # prefer x
-            pass
+            right_turns = (7 - direction) % 4
+
+            if right_turns < 3:
+                print("2\n" * right_turns, end = "")
+            else:
+                print("3")
+            print("1")
+            print(f"""{position["xdev"]}""")
+
+            print("2")
+            print("1")
+            print(f"""{abs(position["ydev"])}""")
         else: # prefer y
-            pass
+            right_turns = 4 - direction
+
+            if right_turns < 3:
+                print("2\n" * right_turns, end = "")
+            else:
+                print("3")
+            print("1")
+            print(f"""{abs(position["ydev"])}""")
+
+            print("3")
+            print("1")
+            print(f"""{position["xdev"]}""")
 
     if position["xdev"] < 0 and position["ydev"] > 0: # X- Y+
         if direction == 0 or direction == 1: # prefer x
-            pass
+            right_turns = (5 - direction) % 4
+
+            if right_turns < 3:
+                print("2\n" * right_turns, end = "")
+            else:
+                print("3")
+            print("1")
+            print(f"""{abs(position["xdev"])}""")
+
+            print("2")
+            print("1")
+            print(f"""{position["ydev"]}""")
         else: # prefer y
-            pass
+            right_turns = (6 - direction) % 4
+
+            if right_turns < 3:
+                print("2\n" * right_turns, end = "")
+            else:
+                print("3")
+            print("1")
+            print(f"""{position["ydev"]}""")
+
+            print("3")
+            print("1")
+            print(f"""{abs(position["xdev"])}""")
 
     if position["xdev"] < 0 and position["ydev"] < 0: # X- Y-
         if direction == 1 or direction == 2: # prefer x
-            pass
-        else: # prefer y
-            pass
+            right_turns = (5 - direction) % 4
 
-    print("")
+            if right_turns < 3:
+                print("2\n" * right_turns, end = "")
+            else:
+                print("3")
+            print("1")
+            print(f"""{abs(position["xdev"])}""")
+
+            print("3")
+            print("1")
+            print(f"""{abs(position["ydev"])}""")
+        else: # prefer y
+            right_turns = 4 - direction
+
+            if right_turns < 3:
+                print("2\n" * right_turns, end = "")
+            else:
+                print("3")
+            print("1")
+            print(f"""{abs(position["ydev"])}""")
+
+            print("2")
+            print("1")
+            print(f"""{abs(position["xdev"])}""")
+
+#     if i != excursions - 1:
+#            print("")
