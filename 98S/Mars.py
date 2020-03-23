@@ -84,44 +84,27 @@ for i in range(excursions):
             print(f"""{abs(position["xdev"])}""")
 
     if position["xdev"] > 0 and position["ydev"] > 0: # X+ Y+
-        if direction == 0:
+        if direction == 0 or direction == 3: # prefer x
             pass
-        elif direction == 1:
-            pass
-        elif direction == 2:
-            pass
-        elif direction == 3:
+        else: # prefer y
             pass
 
     if position["xdev"] > 0 and position["ydev"] < 0: # X+ Y-
-        if direction == 0:
+        if direction == 2 or direction == 3: # prefer x
             pass
-        elif direction == 1:
-            pass
-        elif direction == 2:
-            pass
-        elif direction == 3:
+        else: # prefer y
             pass
 
     if position["xdev"] < 0 and position["ydev"] > 0: # X- Y+
-        if direction == 0:
+        if direction == 0 or direction == 1: # prefer x
             pass
-        elif direction == 1:
-            pass
-        elif direction == 2:
-            pass
-        elif direction == 3:
+        else: # prefer y
             pass
 
     if position["xdev"] < 0 and position["ydev"] < 0: # X- Y-
-        if direction == 0:
+        if direction == 1 or direction == 2: # prefer x
             pass
-        elif direction == 1:
-            pass
-        elif direction == 2:
-            pass
-        elif direction == 3:
+        else: # prefer y
             pass
 
     print("")
-
