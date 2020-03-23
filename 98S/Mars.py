@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 excursions = int(input())
 
 def move(steps, pos):
@@ -17,7 +20,7 @@ for i in range(excursions):
     direction = 0
 
     while True:
-        instruction = input()
+        instruction = input()[:-1]
 
         if instruction == "0":
             break
